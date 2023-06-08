@@ -1,10 +1,8 @@
 import React from "react";
-import {Spinner} from 'react-bootstrap';
+import styles from './Progress.module.css';
 
 export const Progress = () => {
     return (
-        <div>
-            <Spinner animation="border" variant="primary"/>
-        </div>
+        <div className={styles.Progress}></div>
     )
 }
