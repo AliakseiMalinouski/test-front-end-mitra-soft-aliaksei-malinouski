@@ -55,6 +55,11 @@ export const Header = () => {
                         onClick={() => setDrawerState(false)}
                         />
                         <ul className={classes.HeaderLinks}>{linksMemo}</ul>
+                        <div className={classesDrawer.MyInformation}>
+                            <img src="https://i.ibb.co/zmWSvn5/1706-oooo-plus.png" alt="Avatar"/>
+                            <h3>Aliaksei</h3>
+                            <p>aleksymalinowski21@gmail.com</p>
+                        </div>
                     </Drawer>
                 }
             </AnimatePresence>
