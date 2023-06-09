@@ -21,9 +21,7 @@ function App() {
         <div className='Container'>
           <PageRouter/>
         </div>
-        <div className='Container'>
           <Pagination/>
-        </div>
       </Provider>
     </BrowserRouter>
   );

@@ -15,7 +15,7 @@ export const postsThunk = async(dispatch) => {
             acc[postId].data = [rest];
           }
         } else {
-          acc[postId] = { postId, title: `Title post number ${postId}` , data: [rest] };
+          acc[postId] = { postId, title: `Title post number ${postId}`, image: "https://i.ibb.co/xMSwWnx/man.png" , data: [rest] };
         }
         return acc;
       }, {});
