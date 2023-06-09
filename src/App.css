@@ -42,16 +42,30 @@ li {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.LightDarkBackground {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  inset: 0px;
-  -webkit-tap-highlight-color: transparent;
-  z-index: -1;
+.Pagination {
+  position: fixed;
+  left: 0px;
+  top: 50%;
+  border-top: 1px solid blue;
+  border-right:  1px solid blue;
+  border-bottom:  1px solid blue;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: lightgray;
+}
+
+.Pagination li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.Pagination li::first-letter {
+  text-transform: uppercase;
+}
+
+.Pagination li:hover {
+  transition: 0.5s;
+  color: white;
 }

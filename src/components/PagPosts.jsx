@@ -56,7 +56,6 @@ export const PagPost = () => {
         const connectPagination = () => {
             let neededPage = [];
             for(let pageKey in pagination) {
-                console.log(page)
                 if(page === undefined) {
                     neededPage.push(pagination['page1']);
                 }

@@ -34,7 +34,7 @@ export const Pagination = memo(() => {
     }
 
     return (
-        <ul>
+        <ul className="Pagination">
             {
                 generateUIPaganation().map(elem => <li key={elem} onClick={() => {
                     navigate('/home/' + elem);
