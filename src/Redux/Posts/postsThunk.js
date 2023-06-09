@@ -1,5 +1,5 @@
 import { setPosts } from "./postsSlice";
-
+import { generateRandomTitleForPost } from "../../helpers/generateRandomString";
 
 export const postsThunk = async(dispatch) => {
     try {
@@ -16,12 +16,13 @@ export const postsThunk = async(dispatch) => {
             acc[postId].data = [rest];
           }
         } else {
-          acc[postId] = { postId, data: [rest] };
+          acc[postId] = { postId, title: generateRandomTitleForPost() , data: [rest] };
         }
-  
         return acc;
       }, {});
-      dispatch(setPosts(Object.values(sortedObjects)));
+      setTimeout(() => {
+        dispatch(setPosts(Object.values(sortedObjects)));
+      }, 1000);
     } 
     catch (error) {
       console.log(error)

@@ -4,6 +4,7 @@ import { postsThunk } from "../Redux/Posts/postsThunk";
 import { Post } from "./Post";
 import classes from './Home.module.css';
 import { Title } from "./Title";
+import {Progress} from './Progress';
 
 export const Home = memo(() => {
 
@@ -17,19 +18,21 @@ export const Home = memo(() => {
         }
     }, [dispatch, posts]);
 
-    let postsMemo = useMemo(() => posts && posts.map(({id, name, email, body}) => <Post 
-    key={id}
-    name={name}
-    email={email}
-    body={body}
+    let postsMemo = useMemo(() => posts && posts.map(({postId, title, data}) => <Post 
+    key={postId}
+    postId={postId}
+    data={data}
+    title={title}
     />), [posts]);
 
     console.log(posts)
 
     return (
-        <div className={classes.Posts}>
+        <div>
             <Title text='All posts' tag='h2'/>
-            {postsMemo}
+            <div className={classes.Posts}>
+                {!postsMemo.length ? <Progress/> : postsMemo}
+            </div>
         </div>
     )
 })
