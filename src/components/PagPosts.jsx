@@ -78,6 +78,8 @@ export const PagPost = () => {
     title={title}
     />), [currentPage, search]);
 
+    console.log(currentPage)
+
 
     return (
         <div>
@@ -87,8 +89,8 @@ export const PagPost = () => {
                 justifyContent: postsMemo.length < 5 ? 'flex-start' : 'space-evenly'
             }}>
                 {!postsMemo.length && !search ?  <Progress/> : null}
-                {postsMemo.length !== 0 ? postsMemo : null}
-                {!postsMemo.length && search.length ? <NotFound/> : postsMemo}
+                {postsMemo.length !== 0 ? postsMemo : <NotFound/>}
+                
             </div>
         </div>
     )
