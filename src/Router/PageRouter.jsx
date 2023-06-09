@@ -4,7 +4,7 @@ import { Progress } from "../components/Progress";
 
 const HomeLazy = lazy(() => import('../Pages/PageHome'));
 const AboutLazy = lazy(() => import('../Pages/PageAbout'));
-const UserDetailsLazy = lazy(() => import('../Pages/PageUserDetails'));
+const PostDetailsLazy = lazy(() => import('../Pages/PagePostDetails'));
 
 export const PageRouter = () => {
     return (
@@ -15,8 +15,8 @@ export const PageRouter = () => {
             <Route path="/about" element={<Suspense fallback={<Progress/>}>
                 <AboutLazy/>
             </Suspense>}/>
-            <Route path="/details/:user" element={<Suspense fallback={<Progress/>}>
-                <UserDetailsLazy/>
+            <Route path="/details/:postid" element={<Suspense fallback={<Progress/>}>
+                <PostDetailsLazy/>
             </Suspense>}/>
         </Routes>
     )
