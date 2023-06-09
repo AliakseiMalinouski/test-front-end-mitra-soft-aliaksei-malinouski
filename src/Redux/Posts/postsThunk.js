@@ -1,5 +1,4 @@
 import { setPosts } from "./postsSlice";
-import { generateRandomTitleForPost } from "../../helpers/generateRandomString";
 
 export const postsThunk = async(dispatch) => {
     try {
