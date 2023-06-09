@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { postsThunk } from "../Redux/Posts/postsThunk";
 import { Post } from "./Post";
 import classes from './Home.module.css';
+import { Title } from "./Title";
 
 export const Home = memo(() => {
 
@@ -23,8 +24,11 @@ export const Home = memo(() => {
     body={body}
     />), [posts]);
 
+    console.log(posts)
+
     return (
         <div className={classes.Posts}>
+            <Title text='All posts' tag='h2'/>
             {postsMemo}
         </div>
     )
