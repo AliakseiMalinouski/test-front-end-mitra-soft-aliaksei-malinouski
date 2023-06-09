@@ -7,6 +7,7 @@ import { store } from './Redux/store';
 import { PageRouter } from './Router/PageRouter';
 import { Header } from './components/Header';
 import headerClasses from './components/Header.module.css';
+import { Pagination } from './components/Pagination';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </header>
         <div className='Container'>
           <PageRouter/>
+        </div>
+        <div className='Container'>
+          <Pagination/>
         </div>
       </Provider>
     </BrowserRouter>
