@@ -5,9 +5,10 @@ import { postsThunk } from "../Redux/Posts/postsThunk";
 import { updatePost } from "../Redux/Posts/currentPostDetailsSlice";
 import { Progress } from "./Progress";
 import { useState } from "react";
-
+import { AnimatePresence, motion } from "framer-motion";
 import classes from './PostDetails.module.css';
 import Button from "react-bootstrap/esm/Button";
+import { applicationAnimationConfig } from "../framer motion/variants";
 
 export const PostDetails = memo(() => {
 
@@ -43,19 +44,24 @@ export const PostDetails = memo(() => {
                 }}>{!commentsState ? <Button variant="primary">
                     Show comments to this post
                 </Button> : 'Comments of post(tap to close):'}</h5>
+                <AnimatePresence>
                 {
                     commentsState && <ul>
                     {
-                        currentPost.data && currentPost.data.map((elem, index) => <li key={elem.id}>
+                        currentPost.data && currentPost.data.map((elem, index) => <motion.li key={elem.id} custom={index}
+                        variants={applicationAnimationConfig.comments}
+                        initial={'hidden'}
+                        animate={'visible'}
+                        >
                             <img src='https://i.ibb.co/xMSwWnx/man.png' alt="Avatar"/>
                             <div>
                                 <span>Author's name: {elem.name}</span>
                                 <span>Author's email: {elem.email}</span>
                             </div>
-                        </li>)
+                        </motion.li>)
                     }
                 </ul> 
-                }   
+                }</AnimatePresence>   
             </div>}
         </div>
     )

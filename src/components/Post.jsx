@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from './Post.module.css';
 import { postsEvents } from "../events";
+import { applicationAnimationConfig } from "../framer motion/variants";
 
 export const Post = memo(({postId, data, title}) => {
 
@@ -12,7 +13,7 @@ export const Post = memo(({postId, data, title}) => {
     }
 
     return (
-        <motion.div className={styles.Post}>
+        <motion.div className={styles.Post} variants={applicationAnimationConfig.post} initial={'hidden'} whileInView={'visible'} viewport={{once: true}}>
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://cutewallpaper.org/21/wallpaper-for-websites/45+-Wallpaper-Website-on-WallpaperSafari.gif" />
             <Card.Body>
