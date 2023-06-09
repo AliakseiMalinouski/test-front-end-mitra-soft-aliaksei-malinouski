@@ -1,15 +1,18 @@
 .Search {
-    display: block;
-    margin: 0 auto;
-    border: 1px solid lightgray;
     width: 400px;
-    height: 45px;
+    margin: 0 auto;
     margin-bottom: 50px;
-    font-size: 16px;
-    padding-left: 15px;
 }
 
-.Search:focus {
+.Search input {
+    width: 400px;
+    height: 45px;
+    font-size: 16px;
+    padding-left: 15px;
+    border: 1px solid lightgray;
+}
+
+.Search input:focus {
     outline: none;
     outline-offset: none;
 }

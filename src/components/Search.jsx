@@ -5,8 +5,10 @@ import classes from './Search.module.css';
 
 export const Search = memo(() => {
     return (
-        <input className={classes.Search} type="text" maxLength={50} onChange={(eo) => {
-            postsEvents.emit('searchingPost', eo.target.value);
-        }}/>
+        <div className={classes.Search}>
+            <input type="text" placeholder="Search by title" maxLength={50} onChange={(eo) => {
+                postsEvents.emit('searchingPost', eo.target.value);
+            }}/>
+        </div>
     )
 })
