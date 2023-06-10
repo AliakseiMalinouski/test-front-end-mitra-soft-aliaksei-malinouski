@@ -56,7 +56,6 @@ export const CommentDetails = memo(() => {
             return data && childFunc();
         }
         let result = findNeededComment();
-        console.log(result)
         setCurrentComment(result);
     }, [posts, commentName]);
 
