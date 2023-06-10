@@ -39,9 +39,9 @@ export const CommentDetails = memo(() => {
         <div className={classes.CommentDetails}>
             {!currentComment && <Progress/>}
             {currentComment && <>
-                <h3> <img src="https://i.ibb.co/xMSwWnx/man.png" alt="Avatar"/> <span>Author: {currentComment.email}</span></h3>
-                <h6>Name of comment: </h6>
-                <p>{currentComment.body}</p>
+            <h3> <img src="https://i.ibb.co/xMSwWnx/man.png" alt="Avatar"/> <span>Author: {currentComment.email}</span></h3>
+            <h6>Name of comment: </h6>
+            <p>{currentComment.body}</p>
             </>}
         </div>
     )
