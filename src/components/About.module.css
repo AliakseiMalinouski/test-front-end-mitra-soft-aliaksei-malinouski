@@ -1,0 +1,17 @@
+.About {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 100px;
+}
+
+
+.About img {
+    width: 350px;
+}
+
+.About p {
+    width: 60%;
+    font-size: 18px;
+    line-height: 35px;
+}
