@@ -2,6 +2,7 @@
     width: 400px;
     margin: 0 auto;
     margin-bottom: 50px;
+    position: relative;
 }
 
 .Search input {
@@ -15,4 +16,16 @@
 .Search input:focus {
     outline: none;
     outline-offset: none;
+}
+
+.Clear {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.Clear:hover {
+    transition: 0.5s;
+    opacity: 0.8;
 }

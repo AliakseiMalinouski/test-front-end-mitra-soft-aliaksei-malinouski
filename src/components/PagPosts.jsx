@@ -46,9 +46,11 @@ export const PagPost = () => {
     useEffect(() => {
         postsEvents.addListener('searchingPost', searchingPostHome);
         postsEvents.addListener('goToPostDetails', goToPostDetails);
+        postsEvents.addListener('clearSearch', clearSearchHome);
         return () => {
             postsEvents.removeListener('searchingPost', searchingPostHome);
             postsEvents.removeListener('goToPostDetails', goToPostDetails);
+            postsEvents.removeListener('clearSearch', clearSearchHome);
         }
     }, [goToPostDetails]);
 
@@ -70,6 +72,8 @@ export const PagPost = () => {
 
     const searchingPostHome = (value) => setSearch(value);
 
+    const clearSearchHome = () => setSearch("");
+
     let postsMemo = useMemo(() => currentPage && 
     currentPage.filter(elem => elem.title.toLowerCase().includes(search.toLowerCase())).map(({postId, title, data}) => <Post 
     key={postId}
@@ -77,9 +81,6 @@ export const PagPost = () => {
     data={data}
     title={title}
     />), [currentPage, search]);
-
-    console.log(currentPage)
-
 
     return (
         <div>
