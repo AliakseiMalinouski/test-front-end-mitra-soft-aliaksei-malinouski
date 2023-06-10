@@ -36,7 +36,7 @@ export const PostDetails = memo(() => {
     }, [posts, currentPost, postId, dispatch]);
 
     const goToDetailsUser = (user) => {
-        const uri = '/details/commentdetails/' + user;
+        const uri = '/details/commentdetails/' + postId + user;
         navigate(uri);
     }
 
@@ -58,7 +58,7 @@ export const PostDetails = memo(() => {
                         initial={'hidden'}
                         animate={'visible'}
                         >
-                            <img style={{cursor: 'pointer'}} src='https://i.ibb.co/xMSwWnx/man.png' alt="Avatar" onClick={() => goToDetailsUser(elem.name)}/>
+                            <img style={{cursor: 'pointer'}} src='https://i.ibb.co/xMSwWnx/man.png' alt="Avatar" onClick={() => goToDetailsUser(elem.email)}/>
                             <div>
                                 <span>Author's name: {elem.name}</span>
                                 <span>Author's email: {elem.email}</span>

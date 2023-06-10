@@ -22,16 +22,41 @@ export const CommentDetails = memo(() => {
     }, [posts, dispatch]);
 
     useEffect(() => {
-        const findNeededComment = () => {
-            for(let i = 0; i < posts.length; i++) {
-                let element = posts[i];
-                if(element.data) {
-                    let neededComment = element.data.find(comment => comment.name === commentName);
-                    return neededComment;
+        const getEmail = () => {
+            let hashUrl = commentName;
+            let hashUrlSplited = hashUrl.split('');
+            let postId = [];
+            let email = [];
+            for(let n = 0; n < hashUrlSplited.length; n++) {
+                let char = hashUrlSplited[n];
+                if([1,2,3,4,5,6,7,8,9].includes(parseInt(char))) {
+                    postId.push(char);
+                }
+                else {
+                    email.push(char);
                 }
             }
+            return {
+                postId: parseInt(postId.join('')),
+                email: email.join('')
+            };
+        }
+        let infoAboutComment = getEmail();
+        const findNeededComment = () => {
+            let post = posts[infoAboutComment.postId - 1];
+            let data = post && post.data;
+            function childFunc () {
+                for(let i = 0; i < data.length; i++) {
+                    let element = data[i];
+                    if(element.email === infoAboutComment.email) {
+                        return element;
+                    }
+                }
+            }
+            return data && childFunc();
         }
         let result = findNeededComment();
+        console.log(result)
         setCurrentComment(result);
     }, [posts, commentName]);
 
@@ -40,10 +65,10 @@ export const CommentDetails = memo(() => {
             {!currentComment && <Progress/>}
             {currentComment && <>
             <h3> <img src="https://i.ibb.co/xMSwWnx/man.png" alt="Avatar"/> <span>Author: {currentComment.email}</span></h3>
-            <h6>Name of comment: </h6>
+            <h6>Name of comment: {currentComment.name}</h6>
             <p>{currentComment.body}</p>
             </>}
-            <NavLink to='/'>Go to Home</NavLink>
+            {currentComment && <NavLink to='/'>Go to Home</NavLink>}
         </div>
     )
 })

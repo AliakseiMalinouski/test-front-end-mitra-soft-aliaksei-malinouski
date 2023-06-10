@@ -15,3 +15,14 @@
     font-size: 18px;
     line-height: 35px;
 }
+
+@media all and (max-width: 1220px) {
+    .About {
+      flex-flow: wrap;
+      padding-top: 50px;
+      justify-content: center;
+    }
+    .About p {
+        margin-top: 50px;
+    }
+  }
