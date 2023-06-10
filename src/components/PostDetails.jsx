@@ -65,8 +65,9 @@ export const PostDetails = memo(() => {
                             </div>
                         </motion.li>)
                     }
+                    <h4>Click on User's avatar to check his/her comment</h4>   
                 </ul> 
-                }</AnimatePresence>   
+                }</AnimatePresence>
             </div>}
         </div>
     )
