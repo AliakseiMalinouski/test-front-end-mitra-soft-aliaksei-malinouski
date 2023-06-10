@@ -9,11 +9,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import classes from './PostDetails.module.css';
 import Button from "react-bootstrap/esm/Button";
 import { applicationAnimationConfig } from "../framer motion/variants";
+import { useNavigate } from "react-router-dom";
 
 export const PostDetails = memo(() => {
 
     let params = useParams();
     let dispatch = useDispatch();
+    let navigate = useNavigate();
 
     let postId = params.postid;
 
@@ -33,7 +35,10 @@ export const PostDetails = memo(() => {
         }
     }, [posts, currentPost, postId, dispatch]);
 
-    console.log(currentPost)
+    const goToDetailsUser = (user) => {
+        const uri = '/details/commentdetails/' + user;
+        navigate(uri);
+    }
 
     return (
         <div className={classes.PostDetails}>
@@ -53,7 +58,7 @@ export const PostDetails = memo(() => {
                         initial={'hidden'}
                         animate={'visible'}
                         >
-                            <img src='https://i.ibb.co/xMSwWnx/man.png' alt="Avatar"/>
+                            <img src='https://i.ibb.co/xMSwWnx/man.png' alt="Avatar" onClick={() => goToDetailsUser(elem.name)}/>
                             <div>
                                 <span>Author's name: {elem.name}</span>
                                 <span>Author's email: {elem.email}</span>
