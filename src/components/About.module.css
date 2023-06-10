@@ -26,3 +26,9 @@
         margin-top: 50px;
     }
   }
+
+  @media all and (max-width: 560px) {
+    .About img {
+        width: 200px;
+    }
+  }

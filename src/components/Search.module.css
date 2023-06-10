@@ -29,3 +29,12 @@
     transition: 0.5s;
     opacity: 0.8;
 }
+
+@media all and (max-width: 560px) {
+    input {
+        width: 280px !important;
+    }
+    .Search {
+        width: 280px !important;
+    }
+}
