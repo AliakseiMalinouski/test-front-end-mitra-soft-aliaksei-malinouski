@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { memo } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { postsThunk } from "../Redux/Posts/postsThunk";
 import { Progress } from "./Progress";
@@ -43,6 +43,7 @@ export const CommentDetails = memo(() => {
             <h6>Name of comment: </h6>
             <p>{currentComment.body}</p>
             </>}
+            <NavLink to='/'>Go to Home</NavLink>
         </div>
     )
 })
